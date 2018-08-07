@@ -55,6 +55,23 @@ Sidekiq.configure_server do |config|
 end
 ```
 
+## HTTParty tracing
+by default all calls will be gathered and reported by hostname like:
+```
+Completed 200 OK in 3222ms (Views: 81.2ms | ActiveRecord: 204.4ms | Http(airspace.ahinternal.net): 1944.4ms | Http(herman-staging.ahinternal.net): 313.2ms)
+```
+if there is defined global variable `$statsd` with Statsd client instance 
+it will be used to trace execution times and invocation counts
+
+### Usage
+```ruby
+gem 'ah-lograge', require: ['ah/lograge/httparty']
+
+class Gateway
+  include HTTParty
+  include Ah::Lograge::HTTParty::Instrumentation
+end
+```
 
 ## Contributing
 Just create a PR & ping #dev-room or our developers email.
