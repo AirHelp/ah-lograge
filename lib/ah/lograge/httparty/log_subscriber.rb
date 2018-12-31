@@ -28,7 +28,6 @@ module Ah
             Rails.logger.debug(color(text, :GREEN, bold=false))
           end
           if defined?(Statsd) && defined?($statsd)
-            $statsd.increment("http/count/#{ event.payload[:hostname] }")
             $statsd.timing("http/time/#{ event.payload[:hostname] }", event.duration.round(2))
           end
           self.class.add_runtime(event.payload[:hostname], event.duration)
