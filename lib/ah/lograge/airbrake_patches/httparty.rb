@@ -1,6 +1,6 @@
 # add short summary of HTTParty response
 module HTTParty
-  class ResponseError < Error
+  class ResponseError
     def to_airbrake
       params = {
         params: {
