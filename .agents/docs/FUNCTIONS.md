@@ -1,0 +1,8 @@
+- **Shared logging and monitoring library** — packages common observability initializers so every AirHelp web application logs and reports metrics the same way.
+  - **Structured request logging** — condenses each web request into a single readable log line, enabled automatically on install and switchable off per application.
+    - **Request payload enrichment** — attaches request parameters, exceptions, and app-defined custom entries to each log line.
+    - **Sensitive parameter filtering** — lets each application strip unwanted or sensitive parameters from logs before they are written.
+    - **Safe serialization** — detects non-serializable request data (e.g. file uploads, malformed text), replaces it with a safe summary, and reports the incident instead of losing the log line.
+- **Background job monitoring** — reports background job health metrics (successes, failures, durations, queue sizes and latency, global backlog) so operators can watch job processing across applications, without interrupting jobs when the metrics host is down.
+- **Outbound HTTP call tracing** — measures time spent calling other services per destination host, adds it to request log lines, and optionally records call counts and durations as metrics.
+- **Error-report enrichment** — adds useful context to error reports (the invalid database record behind a validation failure, a summary of the failed outbound HTTP request and response), filters sensitive values from that context, and counts every reported exception as a metric.

@@ -1,0 +1,6 @@
+---
+name: ah-lograge
+kind: libraries
+domain: platform
+description: |
+  Ah-lograge is AirHelp's shared **logging and monitoring library** for its web applications. Installing it gives every app the same **structured request logging** with sensitive-data filtering, **background job health metrics**, **outbound call tracing**, and enriched **error reports** — keeping observability consistent across services.
